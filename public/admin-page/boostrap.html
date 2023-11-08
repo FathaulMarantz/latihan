@@ -26,19 +26,19 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <button id="Home-button" href="#" class="nav-link text-white navigasi" aria-current="page" aria-hidden="true">
+                        <a id="Home-button" href="#" class="nav-link text-white navigasi" aria-current="page" aria-hidden="true">
                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Home
-                        </button>
+                        </a>
                     </li>
                     <li>
-                        <button id="Postingan-button" href="#" class="nav-link text-white navigasi">
-                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Postingan
-                        </button>
+                        <a id="Postingan-button" href="#" class="nav-link text-white navigasi">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Upload
+                        </a>
                     </li>
                     <li>
-                        <button id="Statistik-button" href="#" class="nav-link text-white navigasi">
+                        <a id="Statistik-button" href="#" class="nav-link text-white navigasi">
                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Statistik
-                        </button>
+                        </a>
                     </li>
                     <li>
                         <a href="https://desacimarga.com" target="_blank" class="nav-link navigasi" style="color: greenyellow;">
@@ -66,13 +66,49 @@
                 </div>
             </div>
         </div>
-        <div id="Home" class="container align-items-center" style="background-color: #eee;">
+        <div id="Home" class="container align-items-center" style="background-color: #eee; overflow: hidden;">
             <h1 class="text-start text-lg-start p-0 m-0">Home</h1>
+            <div class="text-center" style="height: 100%; display: flex; justify-content: center; align-items: center;">
+                <div class="row align-items-center" style="width: 60%; height: 4.3rem; background-color: aqua; display: flex; border-radius: 2rem;">
+                    <h3 class="fs-6">Selamat kamu berhasil masuk</h3>
+                </div>
+            </div>
         </div>
-        <div id="Postingan" class="container align-items-center" style="background-color: #eee;">
-            <h1 class="text-start text-lg-start p-0 m-0">Postingan</h1>
+        <div id="Postingan" class="container align-items-center" style="background-color: #eee; display: none; overflow: hidden;">
+            <h1 class="text-start text-lg-start p-0 m-0">Upload</h1>
+            <div class="text-center" style="height: 100%; display: flex; justify-content: center; align-items: center;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div id="Statistik" class="container align-items-center" style="background-color: #eee;">
+        <div id="Statistik" class="container align-items-center" style="background-color: #eee; display: none; overflow: hidden;">
             <h1 class="text-start text-lg-start p-0 m-0">Statistik</h1>
         </div>
 

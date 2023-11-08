@@ -1,4 +1,3 @@
-
 // Fungsi untuk menampilkan elemen dengan id yang diberikan dan menyembunyikan yang lainnya
 function showContent(id) {
 
@@ -7,7 +6,7 @@ function showContent(id) {
         div.style.display = "none";
     });
     const selectedDiv = document.getElementById(id);
-    selectedDiv.style.display = "block";
+    selectedDiv.style.display = "inline-block";
 }
 
 // Tambahkan event listener ke setiap tombol navigasi

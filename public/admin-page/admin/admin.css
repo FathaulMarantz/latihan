@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Serif', sans-serif;
+}
+
+h1 {
+    color: orange;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+ul.menu li {
+    display: inline-block;
+}
+
+ul.submenu {
+    display: none;
+}
+
+ul.menu li:hover ul.submenu {
+    display: block;
+    position: absolute;
+}
+
+ul.submenu li {
+    display: block;
+}
+
+.model-content {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, .8);
+    display: grid;
+    place-items: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.model-content.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.model {
+    position: relative;
+    width: 500px;
+    height: 358px;
+    background: url(https://instagram.fcgk27-1.fna.fbcdn.net/v/t51.2885-19/287521049_710170570308933_5963298269284083979_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fcgk27-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=e3Rh3MdDpCEAX-VSpyb&edm=AOwYQ2IBAAAA&ccb=7-5&oh=00_AT9ILDb7cBe4hPwHGSwDxAYiG8suSLshgl9hrEyYsDqcDw&oe=62BFFC2B&_nc_sid=952caf) center no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: opacity .5s .25s, transform .5s .25s;
+}
+
+.model-content.open .model {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.wrapper :is(.btn,
+.link) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #151515;
+    border-radius: 50%;
+}
+
+.btn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: outline .25s;
+}
+
+.active .btn,
+.btn:hover {
+    outline: 5px solid #bb93fc;
+    outline-offset: -4px;
+}
+
+.item {
+    position: absolute;
+    list-style: none;
+    transition: transform .5s;
+    transition-delay: var(--d);
+}
+
+.wrapper.active .item:nth-child(1) {
+    transform: translateX(-65px);
+}
+
+.wrapper.active .item:nth-child(2) {
+    transform: translateY(-65px);
+}
+
+.wrapper.active .item:nth-child(3) {
+    transform: translateX(65px);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font: inherit;
+    color: black;
+    background-color: transparent;
+    outline: 2px solid purple;
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10px, 10px);
+    transition: transform .25s;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label {
+    transform: translate(10px, -14px) scale(.8);
+    color: #d1c5fc;
+    padding-inline: 5px;
+    background-color: #242329;
+}
+
+.input:is(:focus,
+ :valid) {
+    outline-color: #d1c5fc;
+}
+
+body {
+    background: #F0F8FF;
+    background-image: url(https://wallpapercave.com/wp/wp5129073.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+@media screen and (min-width:640px) {
+    body {
+        background-image: url(https://wallpapercave.com/wp/wp5129073.jpg);
+    }
+}
+
+@media screen and (min-width:768px) {
+    body {
+        background-image: url(https://cms-assets.tutsplus.com/cdn-cgi/image/width=850/uploads/users/107/posts/31546/final_image/35-firewatch-wallpaper-affinity-designer-ipad.jpg);
+    }
+}
+
+@media screen and (min-width:1024px) {
+    body {
+        background-image: url(https://i.pinimg.com/736x/a8/cd/6c/a8cd6cfc15b99c54ef268dfb6a0f21ec.jpg);
+    }
+}
