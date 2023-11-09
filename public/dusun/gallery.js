@@ -1,8 +1,8 @@
 const galeriSection = document.getElementById('galeri');
-
+var db = firebase.firestore();
 // Fungsi untuk menampilkan data dari Firestore
 function tampilkanGaleri() {
-    db.collection('Foto').get() // Ganti 'Foto' dengan nama koleksi Firestore Anda
+    db.collection('foto').get() // Ganti 'Foto' dengan nama koleksi Firestore Anda
         .then(snapshot => {
             snapshot.forEach(doc => {
                 const data = doc.data();
@@ -19,7 +19,7 @@ function tampilkanGaleri() {
 
                 // Membuat elemen gambar
                 const image = document.createElement('img');
-                image.src = url;
+                image.src = "https://"+url;
                 image.alt = namaGambar;
                 image.classList.add('menu-card-image');
 
