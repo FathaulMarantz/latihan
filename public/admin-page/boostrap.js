@@ -134,19 +134,59 @@ tampilkanData();
 // counterContainer.innerHTML = visitCount;
 
 // ------------------------------------------- Statistic Data -----------------------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // Get the context of the canvas element we want to select
     var ctx = document.getElementById('myChart').getContext('2d');
+    // Get a reference to the Firestore database
+    var db = firebase.firestore();
 
+    var counterContainer = document.querySelector(".website-counter");
+    var date = new Date();
+    var tahun = date.getFullYear().toString();
+    // Get the document reference from Firestore
+    var docRef = db.collection("page_views").doc(tahun);
+    var datas;
+    // Get the current value from Firestore
+    await docRef.get().then(function(doc) {
+        if (!doc.exists) {
+            // Document doesn't exist, create it with count 1
+            var bulan = (date.getMonth()+1).toString();
+            datas = {
+                "1":0,
+                "2":0,
+                "3":0,
+                "4":0,
+                "5":0,
+                "6":0,
+                "7":0,
+                "8":0,
+                "9":0,
+                "10":0,
+                "11":0,
+                "12":0
+            };
+            docRef.set(data);
+        } else {
+            datas = doc.data();
+        }
+
+        // Update the counter on the web page
+        counterContainer.innerHTML = visitCount;
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+
+    // Get the current month and year
+    var now = new Date();
     // Create your chart data
     var data = {
         labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
         datasets: [{
-            label: 'Viewer in 2023',
+            label: `Viewer in ${tahun}`,
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 1,
-            data: [0, 0, 0, 0, 0, 0, 40, 152, 59, 80, 81, 0, ]
+            data: [datas["1"], datas["2"],  datas["3"],  datas["4"], datas["5"], datas["6"], datas["7"], datas["8"], datas["9"], datas["10"], datas["11"], datas["12"]]
         }]
     };
 
