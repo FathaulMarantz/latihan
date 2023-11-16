@@ -1,26 +1,30 @@
 // Fungsi untuk menampilkan elemen dengan id yang diberikan dan menyembunyikan yang lainnya
 function showContent(id) {
 
-    var divs = document.querySelectorAll('.container');
+    const divs = document.querySelectorAll('.container');
     divs.forEach(div => {
         div.style.display = "none";
     });
-    var selectedDiv = document.getElementById(id);
+    const selectedDiv = document.getElementById(id);
     selectedDiv.style.display = "inline-block";
 }
-var db = firebase.firestore();
+
+
 
 // Tambahkan event listener ke setiap tombol navigasi
-var navLinks = document.querySelectorAll('.navigasi');
+const navLinks = document.querySelectorAll('.navigasi');
 navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
         console.log("Clicked!");
         event.preventDefault(); // Mencegah halaman berpindah ke URL
-        var id = link.id.replace('-button', ''); // Mengambil id div yang sesuai
+        const id = link.id.replace('-button', ''); // Mengambil id div yang sesuai
         showContent(id);
     });
 });
-var galleryTableBody = document.getElementById('gallery-table-body');
+
+// Upload firestore
+const db = firebase.firestore();
+const galleryTableBody = document.getElementById('gallery-table-body');
 // Fungsi untuk menghapus data dari Firestore berdasarkan ID dokumen
 function hapusData(id) {
     db.collection('foto').doc(id).delete()
@@ -35,7 +39,7 @@ function hapusData(id) {
 
 // Fungsi untuk membuat tombol hapus pada setiap baris tabel
 function createDeleteButton(id) {
-    var button = document.createElement('button');
+    const button = document.createElement('button');
     button.textContent = 'Hapus';
     button.onclick = function() {
         hapusData(id);
@@ -50,20 +54,28 @@ function tampilkanData() {
             galleryTableBody.innerHTML = '';
             let nomor = 1;
             snapshot.forEach(doc => {
-                var data = doc.data();
-                var row = `<tr>
+                const data = doc.data();
+                const row = `<tr>
                                 <td>${nomor}</td>
+                                <td>${data.dusun}</td>
                                 <td>${data.namaGambar}</td>
                                 <td>${data.url}</td>
                                 <td></td>
                             </tr>`;
-                var deleteButton = createDeleteButton(doc.id);
+                const deleteButton = createDeleteButton(doc.id);
                 galleryTableBody.innerHTML += row;
                 nomor++;
             });
-            galleryTableBody.innerHTML+=`
+            galleryTableBody.innerHTML += `
                         <tr>
                             <td>No</td>
+                            <td>
+                            <select id="dusun">
+                                <option value="cipeundey">Cipeundey</option>
+                                <option value="sempurmayung">Sempurmayung</option>
+                                <option value="margawati">Margawati</option>
+                            </select>
+                            </td>
                             <td><input type="text" id="namaGambar"></td>
                             <td><input type="text" id="urlGambar"></td>
                             <td><button onclick="tambahData()">Tambah</button></td>
@@ -77,27 +89,80 @@ function tampilkanData() {
 
 // Fungsi untuk menambahkan data ke Firestore
 function tambahData() {
-    var namaGambarInput = document.getElementById('namaGambar');
-    var urlGambarInput = document.getElementById('urlGambar');
-    var namaGambar = namaGambarInput.value;
-    var urlGambar = urlGambarInput.value;
+    const namaGambarInput = document.getElementById('namaGambar');
+    const urlGambarInput = document.getElementById('urlGambar');
+    const idGambarInput = document.getElementById('dusun');
+    const namaGambar = namaGambarInput.value;
+    const urlGambar = urlGambarInput.value;
+    const idGambar = idGambarInput.value
+    console.log(idGambar)
 
     if (namaGambar && urlGambar) {
         db.collection('foto').add({
-            namaGambar: namaGambar,
-            url: urlGambar
-        })
-        .then(() => {
-            console.log('Data berhasil ditambahkan ke Firestore');
-            tampilkanData(); // Menampilkan ulang data setelah menambahkan
-        })
-        .catch(error => {
-            console.error('Error adding document: ', error);
-        });
+                namaGambar: namaGambar,
+                url: urlGambar,
+                dusun: idGambar
+            })
+            .then(() => {
+                alert('Data berhasil ditambahkan ke Firestore');
+                tampilkanData(); // Menampilkan ulang data setelah menambahkan
+            })
+            .catch(error => {
+                alert('Error adding document: ', error);
+            });
     } else {
-        console.error('Nama Gambar dan URL tidak boleh kosong');
+        alert('Nama Gambar dan URL tidak boleh kosong');
     }
 }
 
 // Memanggil fungsi tampilkanData saat halaman dimuat
 tampilkanData();
+
+
+// // ------------------------------------------- Viewer Count -----------------------------------------------------------
+// var counterContainer = document.querySelector(".website-counter");
+// var visitCount = localStorage.getItem("page_view");
+
+// // Check if page_view entry is present
+// if (visitCount) {
+//     visitCount = Number(visitCount) + 1;
+//     localStorage.setItem("page_view", visitCount);
+// } else {
+//     visitCount = 1;
+//     localStorage.setItem("page_view", 1);
+// }
+// counterContainer.innerHTML = visitCount;
+
+// ------------------------------------------- Statistic Data -----------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the context of the canvas element we want to select
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Create your chart data
+    var data = {
+        labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        datasets: [{
+            label: 'Viewer in 2023',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+            data: [0, 0, 0, 0, 0, 0, 40, 152, 59, 80, 81, 0, ]
+        }]
+    };
+
+    // Create your chart options
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    // Create the chart
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+});

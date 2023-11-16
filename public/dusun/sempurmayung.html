@@ -12,8 +12,7 @@ Credit by Kelompok 15 KKN ITB 2023
     <title>Desa Cimarga | Kabupaten Sumedang</title>
     <meta name="description" content="Desa Cimarga Sumedang">
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="icon" type="image/svg" href="img/coffee.svg">
+    <link rel="stylesheet" href="./style-dusun.css">
 </head>
 
 <body>
@@ -34,7 +33,6 @@ Credit by Kelompok 15 KKN ITB 2023
             <a href="../#sejarah">Filosofi</a>
             <a href="../#potensi">Desa</a>
             <a href="../#galeri">Galeri</a>
-            <a href="../#contact">Kontak Kami</a>
         </div>
         <div class="navbar-extra">
             <a href="#" id="search"><i data-feather="search"></i></a>
@@ -61,24 +59,10 @@ Credit by Kelompok 15 KKN ITB 2023
     <!--About Section End-->
 
     <!--Galeri Section Start-->
-    <section id="galeri" class="galeri">
+    <section id="galeri" class="galeri sempurmayung">
         <h2>Galeri<span> Wisata</span></h2>
         <div class="row">
-            <div class="coloum">
-                <div class="menu-card">
-                    <img src="../img/slider-image.jpg" alt="Feed-Instagram" class="menu-card-image">
-                </div>
-            </div>
-            <div class="coloum">
-                <div class="menu-card">
-                    <img src="../img/slider-image.jpg" alt="Feed-Instagram" class="menu-card-image">
-                </div>
-            </div>
-            <div class="coloum">
-                <div class="menu-card">
-                    <img src="../img/slider-image.jpg" alt="Feed-Instagram" class="menu-card-image">
-                </div>
-            </div>
+
         </div>
     </section>
     <!--Galeri Section End-->
@@ -96,20 +80,34 @@ Credit by Kelompok 15 KKN ITB 2023
 
     <!-- Footer Start-->
     <footer>
-        <div class="social-media">
-            <a href="#"><i data-feather="instagram"></i></a>
-            <a href="#"><i data-feather="twitter"></i></a>
-            <a href="#"><i data-feather="facebook"></i></a>
-            <a href="#"><i data-feather="linkedin"></i></a>
-        </div>
+        <div class="row">
+            <div class="coloum-left">
+                <h3>
+                    Web Ini Dibuat Melalui Kerjasama
+                </h3>
+                <ul class="foot">
+                    <img src="../img/kerjasama.png" alt="Kerjasama">
+                    <li>
+                        <a href="#">Institut Teknologi Bandung<br>KIM Desa Cimarga Sumedang</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="coloum-left">
+                <h3>Kelompok 15 Program KKN Institut Teknologi Bandung 2023</h3>
+                <ul class="foot">
+                    <li><a href="#">Dr. Epin Saepudin, M.Pd.<br>Satya Amara<br>Camilla<br>Ilham Hakim<br>Fathaul Marantz Ahmad<br>Tiara Putri Sania<br>Restu Khoirunnisa<br>Dian Kania Elizabeth Hasibuan<br>Ahmad Faujan<br>Zahra Salsabila<br>Maleakhi Franklin Bulo<br>Ziham Hafidz Dwiseptano<br>Ryan Juanda Aritonang<br>Rayhan Adri Fulvian<br>Devi Chintana Olga Shafa Pelista<br>Rahmi Zahrani Alifah<br></a></li>
+                </ul>
+            </div>
 
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Kontak</a>
+            <div class="coloum-right">
+                <h3>Temukan Kami</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31685.91888510695!2d108.013259!3d-6.92167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68cd65380dda37%3A0xe659576d1483da3d!2sCimarga%2C%20Kec.%20Cisitu%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1690699707843!5m2!1sid!2sid"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map">
+                </iframe>
+            </div>
         </div>
-
+        <div class="line">
+        </div>
         <div class="credit">
             <p>&copy; Copyright <a href="">Desa Cimarga</a> 2023</p>
         </div>
@@ -119,8 +117,10 @@ Credit by Kelompok 15 KKN ITB 2023
     <script>
         feather.replace()
     </script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase.js"></script>
+    <script src="../admin-page/firebase-config.js"></script>
     <script src="../assets/script.js"></script>
+    <script src="../dusun/gallery.js"></script>
 </body>
 
 </html>

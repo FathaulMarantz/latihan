@@ -8,25 +8,28 @@ function tampilkanGaleri() {
                 const data = doc.data();
                 const namaGambar = data.namaGambar;
                 const url = data.url;
+                const idGambar = data.dusun;
+                if (galeriSection.classList.contains(idGambar)) {
+                    // Membuat elemen kolom
+                    const column = document.createElement('div');
+                    column.classList.add('coloum');
 
-                // Membuat elemen kolom
-                const column = document.createElement('div');
-                column.classList.add('coloum');
+                    // Membuat elemen menu-card
+                    const menuCard = document.createElement('div');
+                    menuCard.classList.add('menu-card');
 
-                // Membuat elemen menu-card
-                const menuCard = document.createElement('div');
-                menuCard.classList.add('menu-card');
+                    // Membuat elemen gambar
+                    const image = document.createElement('img');
+                    image.src = url;
+                    image.alt = namaGambar;
+                    image.classList.add('menu-card-image');
 
-                // Membuat elemen gambar
-                const image = document.createElement('img');
-                image.src = "https://"+url;
-                image.alt = namaGambar;
-                image.classList.add('menu-card-image');
+                    // Menggabungkan elemen-elemen
+                    menuCard.appendChild(image);
+                    column.appendChild(menuCard);
+                    galeriSection.querySelector('.row').appendChild(column);
+                }
 
-                // Menggabungkan elemen-elemen
-                menuCard.appendChild(image);
-                column.appendChild(menuCard);
-                galeriSection.querySelector('.row').appendChild(column);
             });
         })
         .catch(error => {

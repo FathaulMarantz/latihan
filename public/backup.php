@@ -4,35 +4,12 @@ Credit by Kelompok 15 KKN ITB 2023
 -->
 
 <?php
-
-// $curl = curl_init();
-
-// curl_setopt_array($curl, array(
-//     CURLOPT_URL => "https://v1.nocodeapi.com/revital15asi_cimarga/instagram/kBcCzbutgqOENqsE?limit=12",
-//     CURLOPT_RETURNTRANSFER => true,
-//     CURLOPT_ENCODING => '',
-//     CURLOPT_MAXREDIRS => 10,
-//     CURLOPT_TIMEOUT => 0,
-//     CURLOPT_FOLLOWLOCATION => true,
-//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//     CURLOPT_CUSTOMREQUEST => 'GET',
-//     CURLOPT_POSTFIELDS =>'{}',
-//     CURLOPT_HTTPHEADER => array(
-//     'Content-Type: application/json'
-//     ),
-// ));
-
-// $response = curl_exec($curl);
-
-// curl_close($curl);
-// echo $response;
+//src = IGQWROOHFkZA0JSRDQ1R3VWVFJiRm11Y2ZAvRjlwMkRxZAFZAzRjVxTXZAHSW8ydlVBdE1KX1llNjhDTENWT3pkLWpycjlMV2t5bjlyc3A3X3dESzJYQTgzalplMmdZAQkRfOEVkaDZApZAXFTMmRXbVNsaktjRkYxT2Y0Y0UZD
 
 //Instagram API
-$sumber = "https://v1.nocodeapi.com/revital15asi_cimarga/instagram/kBcCzbutgqOENqsE?limit=12";
+$sumber = "https://v1.nocodeapi.com/desacimarga/instagram/TCLwepDfMGSrrzeP?limit=12";
 $konten = file_get_contents($sumber);
 $data = json_decode($konten, true)
-
-
 ?>
 
 <!DOCTYPE html>
@@ -159,52 +136,40 @@ Cimarga tak hanya menawarkan kehidupan pedesaan yang damai, tetapi juga kekayaan
     <!--Galeri Section End-->
 
 
-    <!--Contact Section Start-->
-    <section class="contact" id="contact">
-        <h2>Kon<span>tak Ka</span>mi</h2>
-        <div class="row">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31685.91888510695!2d108.013259!3d-6.92167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68cd65380dda37%3A0xe659576d1483da3d!2sCimarga%2C%20Kec.%20Cisitu%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1690699707843!5m2!1sid!2sid" 
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map">
-            </iframe>
-
-            <form action="">
-                <div class="input-group">
-                    <!-- <i data-feather="user"></i> -->
-                    <input type="text" placeholder="Isi pesan berikut">
-                </div>
-                <!-- <div class="input-group">
-                    <i data-feather="mail"></i>
-                    <input type="text" placeholder="Email">
-                </div>
-                <div class="input-group">
-                    <i data-feather="phone"></i>
-                    <input type="text" placeholder="No. HP">
-                </div> -->
-                <button type="submit" class="btn">Kirim Pesan</button>
-            </form>
-        </div>
-
-    </section>
-    <!--Contact Section End-->
-
     <!-- Footer Start-->
     <footer>
-        <div class="social-media">
-            <a href="#"><i data-feather="instagram"></i></a>
-            <a href="#"><i data-feather="facebook"></i></a>
+        <div class="row">
+            <div class="coloum-left">
+                <h3>
+                   Web Ini Dibuat Melalui Kerjasama 
+                </h3>
+                <ul class="foot">
+                    <img src="./img/kerjasama.png" alt="Kerjasama">
+                    <li>
+                        <a href="#">Institut Teknologi Bandung<br>KIM Desa Cimarga Sumedang</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="coloum-left">   
+                <h3>Kelompok 15 Program KKN Institut Teknologi Bandung 2023</h3>
+                <ul class="foot">
+                    <li><a href="#">Dr. Epin Saepudin, M.Pd.<br>Satya Amara<br>Camilla<br>Hakim<br>Fathaul Marantz Ahmad<br>Tiara<br>Restu Khoirunnisa<br>Dian<br>Ahmad Fauzan<br>Zahra Salsabilla<br>Maleakhi Gulo<br>Ziham<br>Ryan Juanda Aritonang<br>Raihan Adri Fulvian<br>Devi Chintania Sitanggang<br>Rahmi<br></a></li>
+                </ul>
+            </div>
+            
+            <div class="coloum-right">   
+                <h3>Temukan Kami</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31685.91888510695!2d108.013259!3d-6.92167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68cd65380dda37%3A0xe659576d1483da3d!2sCimarga%2C%20Kec.%20Cisitu%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1690699707843!5m2!1sid!2sid"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map">
+                </iframe>
+            </div>
+        </div> 
+        <div class="line">
         </div>
-
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Kontak</a>
-        </div>
-
         <div class="credit">
             <p>&copy; Copyright <a href="">Desa Cimarga</a> 2023</p>
         </div>
-    </footer>
+    </footer>   
     <!-- Footer End-->
 
     <script>
@@ -212,6 +177,7 @@ Cimarga tak hanya menawarkan kehidupan pedesaan yang damai, tetapi juga kekayaan
     </script>
 
     <script src="./assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

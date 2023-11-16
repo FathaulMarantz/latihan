@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ADMIN - Desa Cimarga | Kabupaten Sumedang</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./boostrap.css">
 </head>
@@ -16,7 +18,7 @@
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi pe-none me-2" width="0" height="32"><use xlink:href="#bootstrap"></use></svg>
                     <div class="d-flex">
-                        <img src="./img/logo.png" class="img-fluid" alt="logo-desa">
+                        <img src="../img/logo.png" class="img-fluid" alt="logo-desa">
                         <div class="ms-1">
                             <span class="fs-4 fst-italic">Desa </span><span class="fs-4 fst-italic" style="color: red;"> Cimarga</span>
                             <span class="fs-6">Kabupaten Sumedang</span>
@@ -41,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://desacimarga.com" target="_blank" class="nav-link navigasi" style="color: greenyellow;">
+                        <a href="../index.html" target="_blank" class="nav-link navigasi" style="color: greenyellow;">
                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Lihat Website
                         </a>
                     </li>
@@ -81,8 +83,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Dusun</th>
                             <th>Nama Gambar</th>
-                            <th>Url</th>
+                            <th>Url https://drive.google.com/uc?export=view&id=(ID)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -94,6 +97,9 @@
         </div>
         <div id="Statistik" class="container align-items-center" style="background-color: #eee; display: none; overflow: hidden;">
             <h1 class="text-start text-lg-start p-0 m-0">Statistik</h1>
+            <div class="chart mt-5">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
     </div>
